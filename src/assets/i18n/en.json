@@ -1,0 +1,26 @@
+{
+  "Hello": "Hello - English",
+  "Home page": "Homepage English",
+
+  "external_home_page": {
+    "show_more_button": "Show more"
+  },
+
+  "internal_home_page": {
+    "see_all_lastest_news": "See all latest News"
+  },
+
+  "news_list_page": {
+    "prev_month_button" : "Previous Month",
+    "next_month_button": "Next Month"
+  },
+
+  "internal_news_list_page": {
+    "prev_month_button" : "Previous Month",
+    "next_month_button": "Next Month"
+  },
+
+  "parking_management_page": {
+    "note_about_use": "Parking spaces can be reserved for visitors. Please check the Terms of Use for details."
+  }
+}

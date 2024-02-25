@@ -1,0 +1,27 @@
+{
+  "Hello": "Konichiwa - Japanese",
+  "Home page": "Ngôi nhà Japanese",
+
+  "external_home_page": {
+    "show_more_button": "もっと見せる"
+  },
+
+  "internal_home_page": {
+    "see_all_lastest_news": "最新のニュースをすべて見る"
+  },
+
+  "news_list_page": {
+    "prev_month_button" : "前の月",
+    "next_month_button": "次の月"
+  },
+
+  "internal_news_list_page": {
+    "prev_month_button" : "前の月",
+    "next_month_button": "次の月"
+  },
+
+  "parking_management_page": {
+    "note_about_use": "来客者用に駐車場を予約することができます。詳細は利用規約をご確認ください"
+  }
+}
+
