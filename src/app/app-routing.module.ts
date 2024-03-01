@@ -5,8 +5,8 @@ import { APP_LAYOUT } from './core/enum/appLayouts';
 
 export enum APP_ROUTE {
   LOGIN = 'login',
-  NEWS = '',
-  HOME = 'game'
+  GAME = 'game',
+  HOME = ''
 }
 
 const routes: Routes = [
@@ -14,6 +14,11 @@ const routes: Routes = [
     path: APP_ROUTE.HOME,
     pathMatch: 'full',
     loadChildren: () => import('./features/home/home-routing.module').then(m => m.HomeRoutingModule),
+  },
+  {
+    path: APP_ROUTE.GAME,
+    pathMatch: 'full',
+    loadChildren: () => import('./features/game/game.routing.module').then(m => m.GameRoutingModule),
   },
   {
     path: APP_ROUTE.LOGIN,

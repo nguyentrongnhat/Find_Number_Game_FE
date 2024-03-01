@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <div class="number-block" [ngClass]="{'selected': this.selected, 'indicate': isIndicate ? true : false }" (click)="onSelect()">
+    <p>{{number}}</p>
+  </div>
+</div>

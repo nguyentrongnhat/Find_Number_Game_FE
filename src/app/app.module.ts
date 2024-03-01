@@ -10,6 +10,8 @@ import { CommonLayoutComponent } from './share/components/layouts/common-layout/
 import { ShareModule } from './share/share.module';
 import { LoginModule } from './features/login/login.module';
 import { HomeModule } from './features/home/home.module';
+import { SelectNumberComponent } from './features/game/components/select-number/select-number.component';
+import { GameModule } from './features/game/game.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { HomeModule } from './features/home/home.module';
     AppRoutingModule,
     LoginModule,
     HomeModule,
+    GameModule,
     ShareModule,
     TranslateModule.forRoot(ngx_translate_config),
   ],
