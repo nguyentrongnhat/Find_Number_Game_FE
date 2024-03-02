@@ -6,12 +6,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ngx_translate_config } from './core/config/ngxTranslateConfig';
-import { CommonLayoutComponent } from './share/components/layouts/common-layout/common-layout.component';
-import { ShareModule } from './share/share.module';
-import { LoginModule } from './features/login/login.module';
-import { HomeModule } from './features/home/home.module';
-import { SelectNumberComponent } from './features/game/components/select-number/select-number.component';
 import { GameModule } from './features/game/game.module';
+import { HomeModule } from './features/home/home.module';
+import { LoginModule } from './features/login/login.module';
+import { ShareModule } from './share/share.module';
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { firebaseConfig } from './core/config/firebase';
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 @NgModule({
   declarations: [
