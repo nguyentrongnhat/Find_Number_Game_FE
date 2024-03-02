@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/find-number-game",
+    "public": "dist/find-number-game/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
