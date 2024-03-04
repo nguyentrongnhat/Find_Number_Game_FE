@@ -7,14 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableNumberComponent implements OnInit {
 
-  public rawNumbers: number[] = Array.from({length: 100}, (_, i) => i + 1);
+  public rawNumbers: number[] = [];
   public randomNumber: number[] = [];
   public dataSet: any[] = [];
   public currentNumber: number = 0;
 
+  public startTime: Date;
+  public endTime: Date;
+  public timer: string = '00:00:00'
+  public timerInterval: any;
+
   ngOnInit(): void {
-    console.log(Array(10))
+    this.createNewGame()
+  }
+
+  public createNewGame() {
+    this.currentNumber = 0
+    this.rawNumbers = Array.from({length: 100}, (_, i) => i + 1);
+    this.randomNumber = [];
+    this.dataSet = [];
+
+    this.startTime = new Date()
     this.createDataForGameTable()
+    this.runTimer()
   }
 
   public createDataForGameTable() {
@@ -29,7 +44,7 @@ export class TableNumberComponent implements OnInit {
       this.randomNumber.forEach((number, index) => {
 
         if(subArray.length === 10) {
-          console.log(subArray)
+          //console.log(subArray)
           this.dataSet.push(subArray)
           subArray = []
         }
@@ -46,14 +61,37 @@ export class TableNumberComponent implements OnInit {
           this.dataSet.push(subArray)
         }
       })
-      console.log('RESULT: ', this.dataSet)
-      console.log('length: ', this.dataSet.length)
+      //console.log('RESULT: ', this.dataSet)
+      //console.log('length: ', this.dataSet.length)
+    }
+  }
+
+  public runTimer() {
+    this.timerInterval = setInterval(() => {
+      let currentTime: Date = new Date();
+      let diff = currentTime.getTime() - this.startTime.getTime()
+
+      let hh = Math.floor(diff/1000/3600); //miliseconds to hours
+      let mm = Math.floor((diff - hh * 3600 * 1000)/1000/60); //miliseconds to minutes
+      let ss = Math.floor((diff - hh * 3600 * 1000 - mm * 60 * 1000)/1000); //milliseconds to seconds
+
+      this.timer = `${hh < 10 ? '0' + hh : hh}:${mm < 10 ? '0' + mm : mm}:${ss < 10 ? '0' + ss : ss}`
+    }, 1000)
+  }
+
+  public stopTimer() {
+    if(this.timerInterval) {
+      clearInterval(this.timerInterval)
     }
   }
 
   public selectNumber() {
-    if(this.currentNumber < 100) {
+    if(this.currentNumber < 99) {
       this.currentNumber++;
+    }
+    else {
+      this.stopTimer()
+      this.endTime = new Date()
     }
   }
 }
