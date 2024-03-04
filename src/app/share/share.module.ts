@@ -30,6 +30,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ClickOutsideDirective } from "./directives/ClickOutSideDirective";
 import { ngx_translate_config } from "../core/config/ngxTranslateConfig";
 import { CommonLayoutComponent } from "./components/layouts/common-layout/common-layout.component";
+import { GameHeaderComponent } from './components/headers/game-header/game-header.component';
 
 
 const materialModules: any[] = [
@@ -50,7 +51,8 @@ const directives: any[] = [
 ]
 
 const components: any[] = [
-  CommonLayoutComponent
+  CommonLayoutComponent,
+  GameHeaderComponent,
 ]
 
 @NgModule({
