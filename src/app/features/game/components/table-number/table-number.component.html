@@ -5,25 +5,32 @@
       <h2>Find Number: {{currentNumber + 1}}</h2>
     </div>
     <div class="controller">
-      <button (click)="createNewGame()">New game</button>
+      <button (click)="createNewGame()">New Game</button>
+      @if (!isPause) {
+        <button (click)="pauseGame()">Pause Game</button>
+      }@else {
+        <button (click)="resumeGame()">Resume Game</button>
+      }
     </div>
   </div>
 
-  <table>
-    @for (rowData of dataSet; track rowData) {
-      <tr>
-        @for (cellData of rowData; track cellData) {
-          <td class="cell">
-            <div class="rotate: 60deg;" [ngStyle]="{'transform': 'translate(' + cellData.x + 'px' + ', ' + cellData.y + 'px' + ')', 'rotate': cellData.reg + 'deg'}">
-              <app-select-number
-                [value]="cellData.number"
-                [currentNumber]="currentNumber"
-                (onSelected)="selectNumber()"
-              ></app-select-number>
-            </div>
-          </td>
-        }
-      </tr>
-    }
-  </table>
+  @if (!isPause) {
+    <table>
+      @for (rowData of dataSet; track rowData) {
+        <tr>
+          @for (cellData of rowData; track cellData) {
+            <td class="cell">
+              <div class="rotate: 60deg;" [ngStyle]="{'transform': 'translate(' + cellData.x + 'px' + ', ' + cellData.y + 'px' + ')', 'rotate': cellData.reg + 'deg'}">
+                <app-select-number
+                  [value]="cellData.number"
+                  [currentNumber]="currentNumber"
+                  (onSelected)="selectNumber()"
+                ></app-select-number>
+              </div>
+            </td>
+          }
+        </tr>
+      }
+    </table>
+  }
 </div>

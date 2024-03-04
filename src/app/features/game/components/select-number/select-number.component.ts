@@ -9,6 +9,7 @@ export class SelectNumberComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     //this.upDateIndicate();
+    this.updateForSelectedNumber();
   }
 
   @Input('value') number: number = 12;
@@ -22,6 +23,12 @@ export class SelectNumberComponent implements OnChanges {
     if(this.currentNumber + 1 === this.number) {
       this.selected = true;
       this.onSelected.emit(this.number)
+    }
+  }
+
+  public updateForSelectedNumber() {
+    if(this.number <= this.currentNumber) {
+      this.selected = true;
     }
   }
 

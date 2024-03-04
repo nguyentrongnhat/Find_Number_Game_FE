@@ -14,15 +14,22 @@ export class TableNumberComponent implements OnInit {
 
   public startTime: Date;
   public endTime: Date;
+  public gameDuration: number = 0;
+
   public timer: string = '00:00:00'
   public timerInterval: any;
+
+  public isPause: boolean = false;
 
   ngOnInit(): void {
     this.createNewGame()
   }
 
   public createNewGame() {
+    this.stopTimer();
+    this.timer = '00:00:00'
     this.currentNumber = 0
+    this.gameDuration = 0
     this.rawNumbers = Array.from({length: 100}, (_, i) => i + 1);
     this.randomNumber = [];
     this.dataSet = [];
@@ -30,6 +37,16 @@ export class TableNumberComponent implements OnInit {
     this.startTime = new Date()
     this.createDataForGameTable()
     this.runTimer()
+  }
+
+  public pauseGame() {
+    this.isPause = true;
+    this.stopTimer();
+  }
+
+  public resumeGame() {
+    this.isPause = false;
+    this.runTimer();
   }
 
   public createDataForGameTable() {
@@ -68,12 +85,11 @@ export class TableNumberComponent implements OnInit {
 
   public runTimer() {
     this.timerInterval = setInterval(() => {
-      let currentTime: Date = new Date();
-      let diff = currentTime.getTime() - this.startTime.getTime()
+      this.gameDuration+=1000
 
-      let hh = Math.floor(diff/1000/3600); //miliseconds to hours
-      let mm = Math.floor((diff - hh * 3600 * 1000)/1000/60); //miliseconds to minutes
-      let ss = Math.floor((diff - hh * 3600 * 1000 - mm * 60 * 1000)/1000); //milliseconds to seconds
+      let hh = Math.floor(this.gameDuration/1000/3600); //miliseconds to hours
+      let mm = Math.floor((this.gameDuration - hh * 3600 * 1000)/1000/60); //miliseconds to minutes
+      let ss = Math.floor((this.gameDuration - hh * 3600 * 1000 - mm * 60 * 1000)/1000); //milliseconds to seconds
 
       this.timer = `${hh < 10 ? '0' + hh : hh}:${mm < 10 ? '0' + mm : mm}:${ss < 10 ? '0' + ss : ss}`
     }, 1000)
