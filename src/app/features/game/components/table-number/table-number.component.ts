@@ -27,6 +27,7 @@ export class TableNumberComponent implements OnInit {
 
   public createNewGame() {
     this.stopTimer();
+    this.isPause = false;
     this.timer = '00:00:00'
     this.currentNumber = 0
     this.gameDuration = 0
