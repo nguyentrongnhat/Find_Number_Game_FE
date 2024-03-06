@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { SoundService } from '../../../../core/services/sounds/sound-service';
 
 @Component({
   selector: 'app-select-number',
@@ -7,8 +8,12 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 })
 export class SelectNumberComponent implements OnChanges {
 
+  constructor(
+    public soundService: SoundService
+  ) {}
+
   ngOnChanges(changes: SimpleChanges): void {
-    //this.upDateIndicate();
+    this.upDateIndicate();
     this.updateForSelectedNumber();
   }
 
@@ -21,6 +26,7 @@ export class SelectNumberComponent implements OnChanges {
 
   public onSelect() {
     if(this.currentNumber + 1 === this.number) {
+      this.soundService.selectedEffect();
       this.selected = true;
       this.onSelected.emit(this.number)
     }
