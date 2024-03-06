@@ -13,8 +13,8 @@ export class SelectNumberComponent implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.upDateIndicate();
-    this.updateForSelectedNumber();
+    //this.upDateIndicate();
+    this.updateForSelectedNumber();//For resume game
   }
 
   @Input('value') number: number = 12;
@@ -26,7 +26,7 @@ export class SelectNumberComponent implements OnChanges {
 
   public onSelect() {
     if(this.currentNumber + 1 === this.number) {
-      this.soundService.selectedEffect();
+      //this.soundService.selectedEffect();
       this.selected = true;
       this.onSelected.emit(this.number)
     }

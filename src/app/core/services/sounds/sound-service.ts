@@ -11,7 +11,7 @@ export class SoundService {
   }
 
   public selectedEffect() {
-    this.audio.src = '../../../../assets/sound-effect/pick-92276-0.5-0.7.mp3';
+    this.audio.src = '../../../../assets/sound-effect/select-number.wav';
     this.audio.play();
   }
 }
