@@ -1,13 +1,21 @@
 .wrapper {
 
+  width: 100%;
+
   .game-info-and-controller {
     display: flex;
     justify-content: space-between;
     .game-info {}
-    .controller {}
+    .controller {
+      .newGameButton {
+        margin-right: 30px;
+      }
+    }
   }
 
   table {
+    margin: auto;
+
     .cell {
       width: 90px;
       height: 90px;
@@ -15,7 +23,6 @@
       .number-wrapper {
         width: 40px;
         height: 40px;
-        background-color: bisque;
       }
     }
   }

@@ -5,11 +5,11 @@
       <h2>Find Number: {{currentNumber + 1}}</h2>
     </div>
     <div class="controller">
-      <button (click)="createNewGame()">New Game</button>
+      <button class="newGameButton" (click)="createNewGame()" mat-flat-button color="primary">New Game</button>
       @if (!isPause) {
-        <button (click)="pauseGame()">Pause Game</button>
+        <button class="pauseGameButton" mat-flat-button color="primary" (click)="pauseGame()">Pause Game</button>
       }@else {
-        <button (click)="resumeGame()">Resume Game</button>
+        <button class="resumeGameButton" mat-flat-button color="primary" (click)="resumeGame()">Resume Game</button>
       }
     </div>
   </div>
@@ -20,7 +20,7 @@
         <tr>
           @for (cellData of rowData; track cellData) {
             <td class="cell">
-              <div class="rotate: 60deg;" [ngStyle]="{'transform': 'translate(' + cellData.x + 'px' + ', ' + cellData.y + 'px' + ')', 'rotate': cellData.reg + 'deg'}">
+              <div class="number-wrapper" [ngStyle]="{'position': 'relative', 'top': '' + cellData.y + '%', 'left': '' + cellData.x + '%', 'rotate': cellData.reg + 'deg'}">
                 <app-select-number
                   [value]="cellData.number"
                   [currentNumber]="currentNumber"

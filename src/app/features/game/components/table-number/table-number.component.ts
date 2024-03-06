@@ -68,8 +68,8 @@ export class TableNumberComponent implements OnInit {
 
         let cellData = {
           number,
-          x: Math.floor(Math.random() * 30),
-          y: Math.floor(Math.random() * 40),
+          x: Math.random() * (90 - 30 + 1) + 30, //Math.random() * (max - min + 1) + min
+          y: Math.random() * (90 - 30 + 1) + 30,
           reg: Math.floor(Math.random() * 350)
         }
         subArray.push(cellData)
@@ -78,6 +78,7 @@ export class TableNumberComponent implements OnInit {
           this.dataSet.push(subArray)
         }
       })
+      console.log('data set: ', this.dataSet)
       //console.log('RESULT: ', this.dataSet)
       //console.log('length: ', this.dataSet.length)
     }
