@@ -68,8 +68,8 @@ export class TableNumberComponent implements OnInit {
 
         let cellData = {
           number,
-          x: Math.random() * (100 - 20 + 1) + 20, //Math.random() * (max - min + 1) + min
-          y: Math.random() * (100 - 20 + 1) + 20,
+          x: Math.random() * (90 - 20 + 1) + 20, //Math.random() * (max - min + 1) + min
+          y: Math.random() * (90 - 20 + 1) + 20,
           reg: Math.floor(Math.random() * 350)
         }
         subArray.push(cellData)
