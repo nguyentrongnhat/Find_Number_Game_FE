@@ -7,14 +7,17 @@
     justify-content: space-between;
     .game-info {}
     .controller {
+      display: flex;
+      flex-direction: column;
       .newGameButton {
-        margin-right: 30px;
+        margin-bottom: 5px;
       }
     }
   }
 
   table {
     margin: auto;
+    transform: translateX(-10%);
 
     .cell {
       width: 90px;
